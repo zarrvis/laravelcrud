@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Video;
 
 class HomeController extends Controller
 {
@@ -25,4 +26,15 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    // public function mySearch(Request $request){
+    //   if($request->has('search')){
+    //     $videos = Video::search($request->get('search'))->get();
+    //   }
+    //   else{
+    //     $videos = Video::get();
+    //   }
+    //
+    //   return view('Video.index', compact('videos'));
+    // }
 }

@@ -16,11 +16,15 @@ class VideoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-      $videos = Video::orderBy('id','DESC')->paginate(5);
+      $s = $request->input('s');
+      $videos = Video::orderBy('id','DESC')
+      ->search($s)
+      ->paginate(5);
 
-     return view('Video.index',compact('videos'));
+     return view('Video.index',compact('videos', 's'))
+                                                  ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**

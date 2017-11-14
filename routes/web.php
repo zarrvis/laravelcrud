@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('video','VideoController');
+
+// Route::get("my-search","HomeController@mySearch");
